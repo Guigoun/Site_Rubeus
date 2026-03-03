@@ -5,12 +5,26 @@ describe("Seção de banners da home", () => {
   });
 
   it("Deve validar se o carrossel do banner rotativo funciona (O teste deve Passar)", () => {
-    //Valida se a seta do carrossel que muda a imagem do banner está visível e funcional
-    cy.get(".next")
+  //Garantimos que o primeiro slide (posição 0) está visível na tela
+  cy.get('.mySlides').eq(0)
+    .should('have.attr', 'style')
+    .and('include', 'display: block');
+
+  //Clicamos na seta para avançar (1 vez é suficiente para ver a mudança)
+  cy.get(".next")
     .should("be.visible")
-    .click()
     .click();
-  });
+
+  // 
+  //O slide 1 tem que ter sumido e o slide 2 (posição 1) tem que ter aparecido
+  cy.get('.mySlides').eq(0)
+    .should('have.attr', 'style')
+    .and('include', 'display: none');
+    
+  cy.get('.mySlides').eq(1)
+    .should('have.attr', 'style')
+    .and('include', 'display: block');
+});
 
   it("Deve permitir o clique no banner rotativo para inscrição (O teste deve quebrar - Bug Esperado)", () => {
     // Buscamos o slide que está visível no momento e tentamos encontrar um link (tag 'a') dentro dele
