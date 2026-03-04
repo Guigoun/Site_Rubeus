@@ -9,26 +9,15 @@ Mochawesome: Utilizado para gerar relatórios detalhados em HTML e JSON.
 Evidências: Configurado para gravação automática de vídeos e captura de telas (screenshots) em caso de falhas.
 
 📦 Instalação
-Clone o repositório:
+Clone o repositório: git clone https://github.com/Guigoun/Qualidade-Rubeus.git
 
+Inicie o projeto Node (gera o package.json básico): npm init -y
 
-git clone https://github.com/Guigoun/Qualidade-Rubeus.git
-Inicie o projeto Node (gera o package.json básico):
+Instale as Dependências do Projeto: npm install
 
+Instale o Cypress: npm install cypress --save-dev
 
-npm init -y
-Instale as Dependências do Projeto:
-
-
-npm install
-Instale o Cypress:
-
-
-npm install cypress --save-dev
-Instale as dependências do Relatório (Mochawesome):
-
-
-npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator
+Instale as dependências do Relatório (Mochawesome): npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator
 
 🖥️ Guia de Configuração da Interface (Passo a Passo)
 Para quem for rodar a automação pela primeira vez na máquina, siga estas instruções visuais:
