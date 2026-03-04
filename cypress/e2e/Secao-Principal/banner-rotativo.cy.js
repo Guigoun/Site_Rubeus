@@ -5,39 +5,40 @@ describe("Seção de banners da home", () => {
   });
 
   it("Deve validar se o carrossel do banner rotativo funciona (O teste deve Passar)", () => {
-  //Garantimos que o primeiro slide (posição 0) está visível na tela
-  cy.get('.mySlides').eq(0)
-    .should('have.attr', 'style')
-    .and('include', 'display: block')
+    //Garantimos que o primeiro slide (posição 0) está visível na tela
+    cy.get(".mySlides")
+      .eq(0)
+      .should("have.attr", "style")
+      .and("include", "display: block");
 
-  //Clicamos na seta para avançar 
-  cy.get(".next")
-    .should("be.visible")
-    .click()
+    //Clicamos na seta para avançar
+    cy.get(".next").should("be.visible").click();
 
-  //O slide 1 tem que ter sumido e o slide 2 (posição 1) tem que ter aparecido
-  cy.get('.mySlides').eq(0)
-    .should('have.attr', 'style')
-    .and('include', 'display: none')
-    
-  cy.get('.mySlides').eq(1)
-    .should('have.attr', 'style')
-    .and('include', 'display: block')
+    //O slide 1 tem que ter sumido e o slide 2 (posição 1) tem que ter aparecido
+    cy.get(".mySlides")
+      .eq(0)
+      .should("have.attr", "style")
+      .and("include", "display: none");
 
-  //Clicamos na seta para avançar 
-  cy.get(".next")
-    .should("be.visible")
-    .click();
+    cy.get(".mySlides")
+      .eq(1)
+      .should("have.attr", "style")
+      .and("include", "display: block");
 
-  //O slide 2 tem que ter sumido e o slide 3 (posição 1) tem que ter aparecido
-  cy.get('.mySlides').eq(1)
-    .should('have.attr', 'style')
-    .and('include', 'display: none')
-    
-  cy.get('.mySlides').eq(2)
-    .should('have.attr', 'style')
-    .and('include', 'display: block')
-});
+    //Clicamos na seta para avançar
+    cy.get(".next").should("be.visible").click();
+
+    //O slide 2 tem que ter sumido e o slide 3 (posição 1) tem que ter aparecido
+    cy.get(".mySlides")
+      .eq(1)
+      .should("have.attr", "style")
+      .and("include", "display: none");
+
+    cy.get(".mySlides")
+      .eq(2)
+      .should("have.attr", "style")
+      .and("include", "display: block");
+  });
 
   it("Deve permitir o clique no banner rotativo para inscrição (O teste deve quebrar - Bug Esperado)", () => {
     // Buscamos o slide que está visível no momento e tentamos encontrar um link (tag 'a') dentro dele
